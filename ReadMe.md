@@ -1,5 +1,5 @@
-Projeto 1 consiste apenas na implementaçao do jogo.
-Projeto 2+3 TecWeb
+## Projeto 1 consiste apenas na implementaçao do jogo.
+## Projeto 2+3 TecWeb
 
 
 <-------------------------------------------------->
