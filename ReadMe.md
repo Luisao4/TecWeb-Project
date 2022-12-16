@@ -1,9 +1,10 @@
 Projeto 1 consiste apenas na implementaçao do jogo.
 ## Projeto 2+3 TecWeb
+Implementaçao do jogo Nim com chamadas a um servidor.
 
 * Existem duas formas possíveis de utilizar este projeto.
   1. Utilizando o servidor em que a 2º parte se focava.
-  2. Utilizando nodejs para correr servidor em localhost.
+  2. Utilizando node.js para correr servidor em localhost.
 
 * Para utilizar a 1º forma:
   ->Simplesmente abrir index.html, que já está configurado apartir do url em loginCode.js
