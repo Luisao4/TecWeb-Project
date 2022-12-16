@@ -1,0 +1,845 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300, 400, 700&display=swap';
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+	font-family: 'Montserrat', sans-serif;
+	scroll-behavior: smooth;
+}
+
+a {
+	text-decoration: none;
+}
+
+button {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.container {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+p {
+	color: black;
+	font-size: 1.4rem;
+	margin-top: 5px;
+	line-height: 2.5rem;
+	font-weight: 300;
+	letter-spacing: 0.05rem;
+}
+
+.section-title {
+	font-size: 4rem;
+	font-weight: 300;
+	color: black;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	text-align: center;
+}
+
+.section-title span {
+	color: blue;
+}
+
+.cta {
+	display: inline-block;
+	padding: 10px 30px;
+	color: white;
+	background-color: transparent;
+	border: 2px solid blue;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+}
+
+.cta:hover {
+	color: white;
+	background-color: blue;
+}
+
+.brand h1 {
+	font-size: 3rem;
+	text-transform: uppercase;
+	color: white;
+}
+
+.brand h1 span {
+	color: blue;
+}
+
+/* Header section */
+#header {
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: auto;
+}
+
+#header .header {
+	min-height: 8vh;
+	background-color: rgba(31, 30, 30, 0.24);
+	transition: 0.3s ease background-color;
+}
+
+#header .nav-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	max-width: 1300px;
+	padding: 0 10px;
+}
+
+#header .nav-list ul {
+	list-style: none;
+	position: absolute;
+	background-color: rgb(31, 30, 30);
+	width: 100vw;
+	height: 100vh;
+	left: 100%;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	overflow-x: hidden;
+	transition: 0.5s ease left;
+}
+
+#header .nav-list ul.active {
+	left: 0%;
+}
+
+#header .nav-list ul a {
+	font-size: 2.5rem;
+	font-weight: 500;
+	letter-spacing: 0.2rem;
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	padding: 20px;
+	display: block;
+}
+
+#header .nav-list ul a::after {
+	content: attr(data-after);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	color: rgba(240, 248, 255, 0.021);
+	font-size: 13rem;
+	letter-spacing: 50px;
+	z-index: -1;
+	transition: 0.3s ease letter-spacing;
+}
+
+#header .nav-list ul li:hover a::after {
+	transform: translate(-50%, -50%) scale(1);
+	letter-spacing: initial;
+}
+
+#header .nav-list ul li:hover a {
+	color: blue;
+}
+
+#header .hamburger {
+	height: 60px;
+	width: 60px;
+	display: inline-block;
+	border: 3px solid white;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	cursor: pointer;
+	transform: scale(0.8);
+	margin-right: 20px;
+}
+
+#header .hamburger:after {
+	position: absolute;
+	content: '';
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 3px solid white;
+	animation: hamburger_puls 1s ease infinite;
+}
+
+#header .hamburger .bar {
+	height: 2px;
+	width: 30px;
+	position: relative;
+	background-color: white;
+	z-index: -1;
+}
+
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	background-color: white;
+	transition: 0.3s ease;
+	transition-property: top, bottom;
+}
+
+#header .hamburger .bar::after {
+	top: 8px;
+}
+
+#header .hamburger .bar::before {
+	bottom: 8px;
+}
+
+#header .hamburger.active .bar::before {
+	bottom: 0;
+}
+
+#header .hamburger.active .bar::after {
+	top: 0;
+}
+
+/* End Header section */
+
+/* presentation Section */
+#presentation {
+	background-image: url(./imgs/background.jpeg);
+	background-size: cover;
+	background-position: top center;
+	position: relative;
+	z-index: 1;
+}
+
+#presentation::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.7;
+	z-index: -1;
+}
+
+#presentation .presentation {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 50px;
+	justify-content: flex-start;
+}
+
+#presentation h1 {
+	display: block;
+	width: fit-content;
+	font-size: 4rem;
+	position: relative;
+	color: transparent;
+	animation: text_reveal 0.5s ease forwards;
+	animation-delay: 1s;
+}
+
+#presentation h1:nth-child(1) {
+	animation-delay: 1s;
+}
+
+#presentation h1:nth-child(2) {
+	animation: text_reveal_name 0.5s ease forwards;
+	animation-delay: 2s;
+}
+
+#presentation h1:nth-child(3) {
+	animation-delay: 3s;
+}
+
+#presentation h1 span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 0;
+	background-color: blue;
+	animation: text_reveal_box 1s ease;
+	animation-delay: 0.5s;
+}
+
+#presentation h1:nth-child(1) span {
+	animation-delay: 0.5s;
+}
+
+#presentation h1:nth-child(2) span {
+	animation-delay: 1.5s;
+}
+
+#presentation h1:nth-child(3) span {
+	animation-delay: 2.5s;
+}
+
+/* End presentation Section */
+
+
+/*	 Tabuleiro Section 	*/
+
+
+#tabuleiro {
+	background-color: black;
+	color: white;
+	position: relative;
+	overflow-x: hidden;
+
+}
+
+#tabuleiro .container .butoes {
+	position: relative;
+	left: -84rem;
+	bottom: -30rem;
+}
+
+#tabuleiro .container #game .row .imgthing {
+	cursor: pointer;
+	position: relative;
+	right: -100px;
+	width: 3cm;
+}
+
+#tabuleiro .container #game #newgame {
+	position: relative;
+	right: -3cm;
+	bottom: -15cm;
+	display: inline-block;
+	padding: 10px 30px;
+	color: white;
+	background-color: transparent;
+	border: 3px solid blue;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+
+}
+
+#tabuleiro .container #game #newgame:hover {
+	color: white;
+	background-color: blue;
+}
+
+#tabuleiro .container #game #pcmove:hover {
+	color: white;
+	background-color: blue;
+}
+
+#wrongBoardSizeText {
+	font-size: 100%;
+	color: red;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	display: none;
+}
+
+#restartGameButton {
+	padding: 5px 10px 5px 10px;
+	font-size: 20px;
+	font-family: MyFirstFont;
+	font-weight: bold;
+	margin: 0 auto;
+	align-items: center;
+	display: flex;
+}
+
+#restartGameDiv {
+	z-index: 10;
+	margin-top: 20px;
+	position: relative;
+	display: none;
+}
+
+#leaveGameDiv {
+	z-index: 10;
+	position: relative;
+	display: none;
+	padding-top: 25px;
+}
+
+/* BUTTONS AND TIMER*/
+
+#startbutton {
+	position: relative;
+	display: inline-block;
+	padding: 10px 30px;
+	color: white;
+	background-color: transparent;
+	border: 3px solid blue;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+	right: -10cm;
+	top: -2.5cm;
+}
+
+#startbutton:hover {
+	background-color: blue;
+	color: white;
+	letter-spacing: 3px;
+}
+
+#pvpstart {
+	position: relative;
+	display: inline-block;
+	padding: 10px 30px;
+	color: white;
+	background-color: transparent;
+	border: 3px solid blue;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+	right: -10cm;
+	top: -2.5cm;
+}
+
+#pvpstart:hover {
+	background-color: blue;
+	color: white;
+	letter-spacing: 3px;
+}
+
+#quitbutton {
+	position: relative;
+	display: inline-block;
+	padding: 10px 30px;
+	color: white;
+	background-color: transparent;
+	border: 3px solid blue;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+	right: -25cm;
+	top: -1cm;
+}
+
+#quitbutton:hover {
+	color: white;
+	background-color: blue;
+}
+
+#onlineQuit {
+	position: relative;
+	display: inline-block;
+	padding: 10px 30px;
+	color: white;
+	background-color: transparent;
+	border: 3px solid blue;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+	right: -25cm;
+	top: -1cm;
+}
+
+#onlineQuit:hover {
+	color: white;
+	background-color: blue;
+}
+
+
+#restartgamediv {
+	position: relative;
+	display: inline-block;
+	padding: 10px 30px;
+	color: white;
+	background-color: transparent;
+	border: 3px solid blue;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	margin-top: 30px;
+	transition: 0.3s ease;
+	transition-property: background-color, color;
+	right: -23.3cm;
+	top: -.5cm;
+}
+
+#restartgamediv:hover {
+	color: white;
+	background-color: blue;
+	letter-spacing: 3px;
+}
+
+#leaveGameButton {
+	padding: 5px 10px 5px 10px;
+	font-size: 20px;
+	font-family: MyFirstFont;
+	font-weight: bold;
+	margin: 0 auto;
+	align-items: center;
+	display: flex;
+}
+
+#timerH2 {
+	position: relative;
+	color: blue;
+	font-size: 20px;
+}
+
+/* END OF BUTTONS */
+
+#messageH1 {
+	position: relative;
+	top: -1cm;
+	left: -1cm;
+	font-size: 30px;
+}
+
+.boardDiv {
+	background-color: black;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 35px;
+}
+
+.boardDiv img {
+	width: 80px;
+	height: 80px;
+}
+
+.cellDiv {
+	width: 90px;
+	display: inline-block;
+}
+
+.pieceDiv {
+	width: 90px;
+	display: inline-block;
+}
+
+#messageH1 {
+	text-align: center;
+	padding-bottom: 5px;
+	font-family: MyFirstFont;
+}
+
+#errorboardsize{ /* Formating error message for invalid board size */
+	color: red;
+	text-align: center;
+	padding-bottom: 5px;
+	font-family: MyFirstFont;
+	position: relative;
+	top: -1cm;
+	left: -1cm;
+	font-size: 30px;
+}
+
+
+
+#gameFormDiv {
+	position: relative;
+	font-weight: bold;
+	font-size: 20px;
+	border-radius: 8px;
+	border-color: black;
+	border-style: solid;
+	padding: 10px;
+	margin-top: 30px;
+	font-family: MyFirstFont;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 350px;
+}
+
+#gameFormDiv h1 {
+	font-size: 120%;
+}
+
+#userTitle {
+	margin-top: 0;
+	margin-bottom: 3px;
+}
+
+#startButton {
+	padding: 5px 10px 5px 10px;
+	font-size: 20px;
+	font-family: MyFirstFont;
+	font-weight: bold;
+	margin: 0 auto;
+	align-items: center;
+	display: flex;
+}
+
+#checkButton {
+	font-family: MyFirstFont;
+	font-weight: bold;
+	display: block;
+	float: left;
+}
+
+#userInput {
+	float: left;
+	width: 95px;
+	height: 25px;
+}
+
+.pieceHovered {
+	filter: invert(100%);
+}
+
+.pieceDeleted {
+	visibility: hidden;
+}
+
+/*		 END OF TABULEIRO SECTION 		*/
+
+
+/* Keyframes */
+
+@keyframes hamburger_puls {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(1.4);
+	}
+}
+
+@keyframes text_reveal_box {
+	50% {
+		width: 100%;
+		left: 0;
+	}
+
+	100% {
+		width: 0;
+		left: 100%;
+	}
+}
+
+@keyframes text_reveal {
+	100% {
+		color: white;
+	}
+}
+
+@keyframes text_reveal_name {
+	100% {
+		color: blue;
+		font-weight: 500;
+	}
+
+}
+
+/* End Keyframes */
+
+/* Media Query For Tablet */
+@media only screen and (min-width: 768px) {
+	.cta {
+		font-size: 2.5rem;
+		padding: 20px 60px;
+	}
+
+	h1.section-title {
+		font-size: 6rem;
+	}
+
+	/* presentation */
+	#presentation h1 {
+		font-size: 7rem;
+	}
+
+	/* End presentation */
+
+}
+
+/* Media Query For Desktop */
+@media only screen and (min-width: 1200px) {
+
+	/* header */
+	#header .hamburger {
+		display: none;
+	}
+
+	#header .nav-list ul {
+		position: initial;
+		display: block;
+		height: auto;
+		width: fit-content;
+		background-color: transparent;
+	}
+
+	#header .nav-list ul li {
+		display: inline-block;
+	}
+
+	#header .nav-list ul li a {
+		font-size: 1.8rem;
+	}
+
+	#header .nav-list ul a:after {
+		display: none;
+	}
+
+	/* End header */
+}
+
+
+
+
+/* End  Media Query For Desktop */
+
+/* new things*/
+
+#box form {
+	border: blue 3px solid;
+	padding: 30px;
+	display: none;
+	position: absolute;
+	top: 60px;
+}
+
+#submit {
+	width: 50%;
+	padding: 1px;
+	color: white;
+	background-color: transparent;
+	border: 2px solid blue;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+}
+
+#register {
+	position: relative;
+	margin-top: 1cm;
+	width: 50%;
+	padding: 1px;
+	color: white;
+	background-color: transparent;
+	border: 2px solid blue;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+}
+
+
+#rules {
+	border: blue 3px solid;
+	padding: 30px;
+	display: none;
+	position: absolute;
+	top: 60px;
+	right: 1cm;
+}
+
+#rules p {
+	color: white;
+	font-size: 2rem;
+}
+
+.closeButtons {
+	position: relative;
+	right: -6cm;
+	margin-top: 1cm;
+	width: 30%;
+	padding: 1px;
+	color: white;
+	background-color: transparent;
+	border: 2px solid blue;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+}
+
+#authors {
+	border: blue 3px solid;
+	padding: 30px;
+	display: none;
+	position: absolute;
+}
+
+#authors p {
+	color: white;
+	font-size: 2rem;
+}
+
+#ranking {
+	display: none;
+	border: blue 3px solid;
+	padding: 30px;
+	display: none;
+	position: absolute;
+}
+
+#Branking {
+	position: relative;
+	top: -1cm;
+	left: -.5cm;
+}
+
+#ranking p {
+	color: white;
+	font-size: 2rem;
+}
+
+#table {
+	background-color: black;
+	right: 1px;
+	border: blue 3px solid;
+	padding: 30px;
+	position:fixed;
+	padding: 15px;
+	color: aliceblue;
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+#table th {
+	color: blue;
+	text-align: left;
+	font-size: 2rem;
+}
