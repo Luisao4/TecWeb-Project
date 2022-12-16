@@ -1,10 +1,6 @@
 ## Projeto 1 consiste apenas na implementaçao do jogo.
 ## Projeto 2+3 TecWeb
 
-
-<-------------------------------------------------->
-
-
 Existem duas formas possíveis de utilizar este projeto.
 1. Utilizando o servidor em que a 2º parte se focava.
 2. Utilizando nodejs para correr servidor em localhost.
